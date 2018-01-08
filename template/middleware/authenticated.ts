@@ -1,4 +1,3 @@
-import { Route } from 'vue-router'
 import { UserInfo } from '~/store/user';
 import { AuthHelper } from '~/plugins/firebase';
 
