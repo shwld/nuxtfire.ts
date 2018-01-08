@@ -1,14 +1,18 @@
 import { Route } from 'vue-router'
 import { UserInfo } from '~/store/user';
+import { AuthHelper } from '~/plugins/firebase';
 
 const protectedPathPrefix = '/my'
 
 export default async function ({ isServer, store, req, redirect, route }) {
-  if (isServer && !req) return
-  const user: UserInfo = await store.dispatch('user/authenticate')
-  const isPrivateRoute = route.matched.some(record => record.path == protectedPathPrefix)
+  if (isServer) {
+    if (!req) return
+    console.log('Server side auth is not support now')
+  } else {
+    const isSignedIn = store.state.user.isSignedIn
+    const isPrivateRoute = route.matched.some(record => record.path == protectedPathPrefix)
 
-  if (user.isSignedIn && route.name == 'login') redirect(protectedPathPrefix)
-  if (!user.isSignedIn && isPrivateRoute) redirect('/login')
+    if (isSignedIn && route.name == 'login') redirect(protectedPathPrefix)
+    if (!isSignedIn && isPrivateRoute) redirect('/login')
+  }
 }
-

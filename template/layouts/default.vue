@@ -7,7 +7,7 @@ div
       b-navbar-nav
         b-nav-item(href="/") Home
       b-navbar-nav.ml-auto
-        b-nav-item-dropdown(right, v-if="$store.state.user.current.isSignedIn")
+        b-nav-item-dropdown(right, v-if="$store.state.user.isSignedIn")
           template(slot="button-content")
             i.fa.fa-user
           b-dropdown-item(href="/my") Profile

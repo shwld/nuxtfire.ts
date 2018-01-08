@@ -3,7 +3,7 @@ section.container
   div
     h1.title My page
     span.
-      uid: {{currentUser.uid}}
+      uid: \{{currentUser.uid}}
 </template>
 
 <script lang="ts" src="./index.ts"></script>

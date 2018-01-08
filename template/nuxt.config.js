@@ -30,6 +30,7 @@ module.exports = {
   ],
   plugins: [
     '~/plugins/firebase.ts',
+    '~/plugins/authenticate.ts',
   ],
   modules: [
     '@nuxtjs/dotenv',
