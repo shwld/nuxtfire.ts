@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 module.exports = {
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -26,11 +27,10 @@ module.exports = {
     middleware: 'authenticated',
   },
   vendor: [
-    'vuex', 'firebase',
+    'vuex', '~/plugins/lib/firebase',
   ],
   plugins: [
-    '~/plugins/firebase.ts',
-    '~/plugins/authenticate.ts',
+    { src: '~/plugins/authenticate.ts', ssr: false },
   ],
   modules: [
     '@nuxtjs/dotenv',

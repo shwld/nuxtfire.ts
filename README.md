@@ -9,7 +9,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 ``` bash
 $ vue init shwld/nuxtfire.ts my-project
 # install dependencies
-$ npm install # Or yarn install
+$ yarn install
 ```
 
 > Make sure to use a version of vue-cli >= 2.1 (`vue -V`).
@@ -20,7 +20,7 @@ $ npm install # Or yarn install
 
 ``` bash
 # serve with hot reloading at localhost:3000
-$ npm run dev
+$ yarn run dev
 ```
 
 Go to [http://localhost:3000](http://localhost:3000)
@@ -29,13 +29,21 @@ Go to [http://localhost:3000](http://localhost:3000)
 
 ``` bash
 # build for production and launch the server
-$ npm run build
-$ npm start
+$ yarn build
+$ yarn start
 ```
 
 ### Generate
 
 ``` bash
 # generate a static project
-$ npm run generate
+$ yarn run generate
+```
+
+### Deploy to heroku
+
+```bash
+$ heroku config:set NPM_CONFIG_PRODUCTION=false
+$ heroku config:set HOST=0.0.0.0
+$ heroku config:set NODE_ENV=production
 ```
